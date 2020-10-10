@@ -1,27 +1,30 @@
 
-# TITLE
+![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+![Website cv.lbesson.qc.to](https://img.shields.io/website-up-down-green-red/http/cv.lbesson.qc.to.svg)
+
+# TITLE OF MY PROJECT
 
 
 ## Installation
 
-idopahgewoihgaw
+install with xxx yyy zzz instructions
 <hr>
 
 ## Description
 
-ddesfeajiogfaewh
+here is a brief description of what my project does blah blahblah blah blah
 <hr>
 
 ## Usage
 
-hipeageiaowp
+use it like this
 <hr>
 
 ## License
 
 MIT License
 
-    Copyright (c) 2020 jen henry
+    Copyright (c) 2020 Jen Henry
     
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -45,7 +48,7 @@ MIT License
 
 # Author
 
-jen henry
+Jen Henry
 
 GitHub: jenryhennifer
 

@@ -1,5 +1,4 @@
 const inquirer = require("inquirer")
-const axios = require('axios')
 const fs = require("fs")
 const util = require("util")
 
@@ -56,10 +55,35 @@ function questions(){
             name: 'test',
             message: 'Tests: '
         },
-
-
+        {
+            type: 'list',
+            name: 'badgeMaintained',
+            message: 'Is your code maintained?',
+            choices: ['y','n']
+        },
+        {
+            type: 'list',
+            name: 'badgeWebsiteUp:',
+            message: 'Is your website deployed?',
+            choices: ['y','n']
+        }
         ])
 }
+
+const badgeMaintain = (response) =>{
+    if(response.badgeMaintained === 'y'){
+        return '![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)'
+    }else{
+        return '![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)'
+    }
+}
+const badgeDeployed = (response =>{
+    if(response.badgeWebsiteUp === 'y'){
+        return '![Website monip.org](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)'
+    }else{
+        return '![Website cv.lbesson.qc.to](https://img.shields.io/website-up-down-green-red/http/cv.lbesson.qc.to.svg)'
+    }
+})
 
 const licenses = (response) => {
     const options = {
@@ -135,6 +159,9 @@ const licenses = (response) => {
 
 function generateMD(response){
     return `
+${badgeMaintain(response)}
+${badgeDeployed(response)}
+
 # ${response.title}
 
 
