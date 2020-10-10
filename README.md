@@ -22,6 +22,32 @@ GitHub: https://github.com/jenryhennifer/READMEgenerator
 
 The purpose of this project was to create a README.md generator through prompts in the terminal. When index.js is run in the terminal, the user is asked a series of questions abou their name, email, github username, title of project, description, installation, usage, a list of license options, contributors, and tests. This will then be written into a new READMEsample.md document. 
 
+This program uses npm install to require features:
+```
+const inquirer = require("inquirer")
+const fs = require("fs")
+const util = require("util")
+```
+
+Inquirer is ued to prompt the quesitons and save answers as an object. The type will determine what type of prompt there will be, the name will create a name of they key for the object, and the messsage will prompt a message for the user. The input response will create the value for they key. Example:
+
+```
+{
+    type: 'input',
+    name: 'username',
+    message: 'GitHub Username:'
+},
+```
+
+The prompts were written into a write file which takes in paramaters of name of file (READMEsample.md), data for file (md), and the utf8.
+
+```
+const writeFileHere = util.promisify(fs.writeFile);
+...
+return writeFileHere("READMEsample.md", md, 'utf8');
+```
+
+
 <hr>
 
 ## License

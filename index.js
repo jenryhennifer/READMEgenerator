@@ -2,7 +2,7 @@ const inquirer = require("inquirer")
 const fs = require("fs")
 const util = require("util")
 
-const writeFileAsync = util.promisify(fs.writeFile);
+const writeFileHere = util.promisify(fs.writeFile);
 
 function questions(){
     return inquirer
@@ -13,6 +13,11 @@ function questions(){
             name: 'nameOfPerson',
             message: 'What is your first/last name?'
 
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is your email?'
         },
         {
             type: 'input',
@@ -192,6 +197,8 @@ ${response.nameOfPerson}
 
 GitHub: ${response.username}
 
+Email: ${response.email}
+
 ![my photo](https://github.com/${response.username}.png?size=200)
 
 `
@@ -202,7 +209,7 @@ questions()
   .then(function(response) {
     const md = generateMD(response);
 
-    return writeFileAsync("READMEsample.md", md);
+    return writeFileHere("READMEsample.md", md, 'utf8');
   })
   .then(function() {
     console.log("Successfully wrote");
